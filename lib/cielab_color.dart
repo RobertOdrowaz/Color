@@ -17,7 +17,11 @@ class CielabColor extends Color {
   HsvColor toHsvColor() => this.toRgbColor().toHsvColor();
 
   XyzColor toXyzColor() {
-    Map<String, num> xyz = {'x': a / 500 + (l + 16) / 116, 'y': (l + 16) / 116, 'z': (l + 16) / 116 - b / 200};
+    Map<String, num> xyz = {
+      'x': a / 500 + (l + 16) / 116,
+      'y': (l + 16) / 116,
+      'z': (l + 16) / 116 - b / 200
+    };
 
     xyz.forEach((key, value) {
       num cube = pow(value, 3);
@@ -37,4 +41,14 @@ class CielabColor extends Color {
   String toString() => "l: $l, a: $a, b: $b";
 
   Map<String, num> toMap() => {'l': l, 'a': a, 'b': b};
+
+  @override
+  List<Object> get props => [
+        l,
+        a,
+        b,
+      ];
+
+  @override
+  bool get stringify => false;
 }

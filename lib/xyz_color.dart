@@ -63,4 +63,14 @@ class XyzColor extends Color {
   String toString() => "x: $x, y: $y, z: $z";
 
   Map<String, num> toMap() => {'x': x, 'y': y, 'z': z};
+
+  @override
+  List<Object> get props => [
+        x,
+        y,
+        z,
+      ];
+
+  @override
+  bool get stringify => false;
 }

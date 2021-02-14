@@ -247,4 +247,14 @@ class RgbColor extends Color implements CssColorSpace {
     'yellow': const Color.rgb(255, 255, 0),
     'yellowgreen': const Color.rgb(154, 205, 50)
   };
+
+  @override
+  List<Object> get props => [
+        r,
+        g,
+        b,
+      ];
+
+  @override
+  bool get stringify => false;
 }

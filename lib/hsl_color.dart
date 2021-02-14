@@ -86,4 +86,14 @@ class HslColor extends Color implements CssColorSpace {
   String toCssString() => 'hsl($h, $s%, $l%)';
 
   Map<String, num> toMap() => {'h': h, 's': s, 'l': l};
+
+  @override
+  List<Object> get props => [
+        h,
+        s,
+        l,
+      ];
+
+  @override
+  bool get stringify => false;
 }

@@ -50,4 +50,14 @@ class HsvColor extends Color {
   String toString() => "h: $h, s: $s%, v: $v%";
 
   Map<String, num> toMap() => {'h': h, 's': s, 'v': v};
+
+  @override
+  List<Object> get props => [
+        h,
+        s,
+        v,
+      ];
+
+  @override
+  bool get stringify => false;
 }

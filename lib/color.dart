@@ -9,6 +9,8 @@ library color;
 
 import 'dart:math';
 
+import 'package:equatable/equatable.dart';
+
 part 'rgb_color.dart';
 part 'hex_color.dart';
 part 'hsl_color.dart';
@@ -26,7 +28,7 @@ part 'color_parser.dart';
  *
  * [Color]s can be directly compared using the `==` operator, which will return true if the two [Color] objects represent the same RGB color.
  */
-abstract class Color {
+abstract class Color implements Equatable {
   const Color();
   const factory Color.rgb(num r, num g, num b) = RgbColor;
   factory Color.hex(String hexCode) = HexColor;
@@ -45,12 +47,10 @@ abstract class Color {
   String toString();
   Map<String, num> toMap();
 
-  get hashCode {
+  int get value {
     RgbColor rgb = this.toRgbColor();
     return 256 * 256 * rgb.r.toInt() + 256 * rgb.g.toInt() + rgb.b.toInt();
   }
-
-  operator ==(Object other) => other is Color && this.hashCode == other.hashCode;
 
   operator [](String key) => this.toMap()[key];
 
